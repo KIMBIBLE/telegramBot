@@ -9,7 +9,7 @@ from selenium import webdriver
 
 def on_chat_message(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
-    if msg['text'] == koreanTrans('/학식'):
+    if msg['text'] == u'/학식':
       keyboard = InlineKeyboardMarkup(inline_keyboard=[
                      [InlineKeyboardButton(text=u'1.학생회관', callback_data='HakKwan')],
                      [InlineKeyboardButton(text=u'2. 찬 스카이라운지', callback_data='ChanSky')],
