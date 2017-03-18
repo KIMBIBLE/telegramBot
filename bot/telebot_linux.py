@@ -1,3 +1,5 @@
+#-*-coding utf8-*-
+
 import sys
 import time
 import telepot
@@ -9,7 +11,7 @@ from selenium import webdriver
 
 def on_chat_message(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
-    if msg['text'] == koreanTrans('/학식'):
+    if msg['text'] == koreanTrans(u'/학식'):
       keyboard = InlineKeyboardMarkup(inline_keyboard=[
                      [InlineKeyboardButton(text=koreanTrans('1.학생회관'), callback_data='HakKwan')],
                      [InlineKeyboardButton(text=koreanTrans('2. 찬 스카이라운지'), callback_data='ChanSky')],
@@ -45,7 +47,8 @@ def on_callback_query(msg):
     bot.answerCallbackQuery(query_id, text='Got it')
 
 def koreanTrans(s):
-  return s.encode('utf-8')
+#  return s.decode('utf-8').incode('utf-8')
+   return s
 
 def makeDictMessage(message, menuDict):
   for key in menuDict:
