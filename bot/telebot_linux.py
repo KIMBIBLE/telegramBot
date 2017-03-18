@@ -11,18 +11,18 @@ def on_chat_message(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
     if msg['text'] == koreanTrans('/학식'):
       keyboard = InlineKeyboardMarkup(inline_keyboard=[
-                     [InlineKeyboardButton(text=koreanTrans('1.학생회관'), callback_data='HakKwan')],
-                     [InlineKeyboardButton(text=koreanTrans('2. 찬 스카이라운지'), callback_data='ChanSky')],
-                     [InlineKeyboardButton(text=koreanTrans('3. 우정당'), callback_data= 'WuJung')],
-                     [InlineKeyboardButton(text=koreanTrans('4. 군자관'), callback_data= 'KwunJa')],
+                     [InlineKeyboardButton(text=u'1.학생회관', callback_data='HakKwan')],
+                     [InlineKeyboardButton(text=u'2. 찬 스카이라운지', callback_data='ChanSky')],
+                     [InlineKeyboardButton(text=u'3. 우정당', callback_data= 'WuJung')],
+                     [InlineKeyboardButton(text=u'4. 군자관', callback_data= 'KwunJa')],
                  ])
-      message = koreanTrans('<세종대 학식 메뉴>\n1.학생식당\n2.찬 스카이라운지\n3.우정당\n군자관\n')
+      message = u'<세종대 학식 메뉴>\n1.학생식당\n2.찬 스카이라운지\n3.우정당\n군자관\n'
 
       bot.sendMessage(chat_id, message, reply_markup=keyboard)
 
     elif msg['text'] == '/?':
       message = '0. help : /?, /help, /h\n'
-      message += koreanTrans('1. 학식 메뉴 : /학식')
+      message += u'1. 학식 메뉴 : /학식'
       bot.sendMessage(chat_id, message)
 
 
@@ -43,9 +43,6 @@ def on_callback_query(msg):
       kwunJaPrint(from_id, message)
 
     bot.answerCallbackQuery(query_id, text='Got it')
-
-def koreanTrans(s):
-  return s.encode('utf-8')
 
 def makeDictMessage(message, menuDict):
   for key in menuDict:
@@ -89,7 +86,7 @@ def hakKwanPrint(from_id):
   menuDict = {}
   menuDict = hakKwanParse()
 
-  message = koreanTrans("<학생회관 메뉴>\n\n")
+  message = u"<학생회관 메뉴>\n\n"
   message = makeDictMessage(message, menuDict)
   bot.sendMessage(from_id, message)
 
@@ -115,7 +112,7 @@ def chanParse():
   menuList.append(menuList[-1])
   del menuList[1::2]
 
-  menuKey = [koreanTrans("<월>\n"), koreanTrans("<화>\n"), koreanTrans("<수>\n"), koreanTrans("<목>\n"), koreanTrans("<금>\n"), koreanTrans("<석식>\n"), koreanTrans("<영업시간>\n")]
+  menuKey = [u"<월>\n", u"<화>\n", u"<수>\n", u"<목>\n", u"<금>\n", u"<석식>\n", u"<영업시간>\n"]
 
   res = []
   for (m,k) in zip(menuList, menuKey):
@@ -133,7 +130,7 @@ def chanPrint(from_id):
   menuList = []
   menuList = chanParse()
 
-  message = koreanTrans("<찬 스카이라운지 메뉴>\n\n")
+  message = u"<찬 스카이라운지 메뉴>\n\n"
   message = makeListMessage(message, menuList)
   bot.sendMessage(from_id, message)
 
@@ -200,12 +197,12 @@ def wuJungPrint(from_id):
   menuList = []
   menuList = wuJungParse()
 
-  message = koreanTrans("<우정당 메뉴>\n\n")
+  message = u"<우정당 메뉴>\n\n"
   message = makeListMessage(message, menuList)
   bot.sendMessage(from_id, message)
 
 def kwunJaPrint(from_id):
-  message = koreanTrans("웹페이지에 메뉴 정보가 없습니다.\n")
+  message = u"웹페이지에 메뉴 정보가 없습니다.\n"
   bot.sendMessage(from_id, message)
 
 
