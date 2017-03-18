@@ -147,7 +147,7 @@ def chanPrint(from_id):
 
 
 def wuJungParse():
-  path = r"C:\Users\B.B.KIM\Downloads\chromedriver_win32"
+  path = r"/home/ubuntu/chromedriver"
   name = r"chromedriver.exe"
 
   driver_path = getFilePath(path, name)
