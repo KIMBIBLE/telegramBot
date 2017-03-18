@@ -99,7 +99,7 @@ def hakKwanPrint(from_id):
 
 def chanParse():
   #for Web Driver
-  path = r"C:\Users\B.B.KIM\Downloads\chromedriver_win32"
+  path = r"/home/ubuntu/chromedriver"
   name = r"chromedriver.exe"
 
   driver_path = getFilePath(path, name)
