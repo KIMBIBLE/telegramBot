@@ -59,13 +59,6 @@ def makeListMessage(message, menuList):
 
   return message
 
-def getFilePath(path, name):
-  path.replace("\\", "\\\\")
-  path += "\\"
-  path += name
-
-  return path
-
 def hakKwanParse():
 
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
@@ -99,11 +92,8 @@ def hakKwanPrint(from_id):
 
 def chanParse():
   #for Web Driver
-  path = r"/home/ubuntu/"
-  name = r"chromedriver"
-
-  driver_path = getFilePath(path, name)
-
+  driver_path = "/home/ubuntu/chromedriver"
+  
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
   driver = webdriver.Chrome(executable_path = driver_path)
   driver.get(url)
@@ -147,10 +137,7 @@ def chanPrint(from_id):
 
 
 def wuJungParse():
-  path = r"/home/ubuntu/"
-  name = r"chromedriver"
-
-  driver_path = getFilePath(path, name)
+  driver_path = "/home/ubuntu/chromedriver"
 
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
   driver = webdriver.Chrome(executable_path = driver_path)
