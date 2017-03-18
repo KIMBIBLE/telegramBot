@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 import sys
 import time
 import telepot
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
-import urllib.request
+import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
@@ -40,7 +42,7 @@ def on_callback_query(msg):
       wuJungPrint(from_id)
 
     elif query_data == 'KwunJa' :
-      kwunJaPrint(from_id, message)
+      kwunJaPrint(from_id)
 
     bot.answerCallbackQuery(query_id, text='Got it')
 
@@ -62,10 +64,10 @@ def makeListMessage(message, menuList):
 def hakKwanParse():
 
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
-  req = urllib.request.Request(url)
-  data = urllib.request.urlopen(req).read()
+  data = requests.get(url)
+  #data = request.urlopen(req).read()
 
-  bs = BeautifulSoup(data, 'html.parser')
+  bs = BeautifulSoup(data.content, 'html.parser', from_encoding='utf-8')
   menu = bs.find_all('div', attrs = {'class':'th'})
 
   menuList = []
