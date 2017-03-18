@@ -99,8 +99,8 @@ def hakKwanPrint(from_id):
 
 def chanParse():
   #for Web Driver
-  path = r"/home/ubuntu/chromedriver"
-  name = r"chromedriver.exe"
+  path = r"/home/ubuntu/"
+  name = r"chromedriver"
 
   driver_path = getFilePath(path, name)
 
@@ -147,8 +147,8 @@ def chanPrint(from_id):
 
 
 def wuJungParse():
-  path = r"/home/ubuntu/chromedriver"
-  name = r"chromedriver.exe"
+  path = r"/home/ubuntu/"
+  name = r"chromedriver"
 
   driver_path = getFilePath(path, name)
 
