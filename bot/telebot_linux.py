@@ -45,7 +45,7 @@ def on_callback_query(msg):
     bot.answerCallbackQuery(query_id, text='Got it')
 
 def koreanTrans(s):
-  return s.decode('utf-8').encode('utf-8')
+  return s.encode('utf-8')
 
 def makeDictMessage(message, menuDict):
   for key in menuDict:
