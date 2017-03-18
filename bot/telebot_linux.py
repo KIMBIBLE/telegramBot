@@ -93,9 +93,9 @@ def hakKwanPrint(from_id):
 def chanParse():
   #for Web Driver
   driver_path = "/home/ubuntu/chromedriver"
-  
+
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
-  driver = webdriver.Chrome(executable_path = driver_path)
+  driver = webdriver.PhantomJS()
   driver.get(url)
   driver.execute_script("selectedCafeteria(1)") 
 
@@ -140,7 +140,7 @@ def wuJungParse():
   driver_path = "/home/ubuntu/chromedriver"
 
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
-  driver = webdriver.Chrome(executable_path = driver_path)
+  driver = webdriver.PhantomJS()
   driver.get(url)
   driver.execute_script("selectedCafeteria(2)") 
 
