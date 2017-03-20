@@ -97,7 +97,7 @@ def chanParse():
   driver_path = "/home/ubuntu/chromedriver"
 
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
-  driver = webdriver.PhantomJS()
+  driver = webdriver.PhantomJS(service_args=['--ssl-protocol=any'])
   driver.get(url)
   driver.execute_script("selectedCafeteria(1)") 
 
@@ -139,10 +139,9 @@ def chanPrint(from_id):
 
 
 def wuJungParse():
-  driver_path = "/home/ubuntu/chromedriver"
 
   url = "http://m.sejong.ac.kr/front/cafeteria.do"
-  driver = webdriver.PhantomJS()
+  driver = webdriver.PhantomJS(service_args=['--ssl-protocol=any'])
   driver.get(url)
   driver.execute_script("selectedCafeteria(2)") 
 
